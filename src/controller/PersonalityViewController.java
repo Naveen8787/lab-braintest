@@ -9,6 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.PersonalityCalculator;
+
+
+// Do not edit or modify this class unless required.
+// This file acts as a controller class
+// Instructions would be given at specific places to create or modify the existing code
 
 @WebServlet(urlPatterns= {"/personality"})
 public class PersonalityViewController extends HttpServlet {
@@ -33,9 +39,17 @@ public class PersonalityViewController extends HttpServlet {
 		String options=request.getParameter("selectedOptions");
 		
 		System.out.println(options);
-				
-		/* 
+		PersonalityCalculator pc=new PersonalityCalculator();
+		
+		// create an object for the PersonalityCalculator
+		String message= pc.findYourBrainType(options);
+		// call the findYourBrainType method using the object created above and pass options as argument.
+		     
+		// The value returned from the method is of type string.
+		// Store the String returned in a string literal called as message
+			
 
+		
 		request.setAttribute("message", message);
 		
 		if(message!=null)
@@ -53,7 +67,7 @@ public class PersonalityViewController extends HttpServlet {
 				rd.forward(request, response);
 			}
 		
-		}*/
+		}
 		}
 	}
 
